@@ -15,7 +15,7 @@ namespace SnakeAndLadder
         {
             return random.Next(7);
         }
-        public void Player()
+        public int Player()
         {
             int count = 1;
             while ( playerpos < WINNING_POS)
@@ -49,8 +49,7 @@ namespace SnakeAndLadder
                 count++;
                 
             }
-            Console.WriteLine("Player is at position {0}",playerpos);
-            Console.WriteLine("Players complets game in {0} moves",count);
+            return count;
         }
 
     }
