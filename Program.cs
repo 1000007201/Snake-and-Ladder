@@ -1,2 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Welcome to snake and Ladder game");
+using SnakeAndLadder;
+
+SnakeLadder snake = new SnakeLadder();
+snake.DiceRoll();

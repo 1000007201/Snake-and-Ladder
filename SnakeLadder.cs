@@ -8,6 +8,11 @@ namespace SnakeAndLadder
 {
     public class SnakeLadder
     {
+        Random random = new Random();
+        public void DiceRoll()
+        {
+            Console.WriteLine("Player got {0}", random.Next(7));
+        }
 
     }
 }
