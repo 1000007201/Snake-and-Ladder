@@ -2,4 +2,4 @@
 using SnakeAndLadder;
 
 SnakeLadder snake = new SnakeLadder();
-snake.DiceRoll();
+snake.Player();

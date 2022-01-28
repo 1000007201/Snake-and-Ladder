@@ -8,10 +8,29 @@ namespace SnakeAndLadder
 {
     public class SnakeLadder
     {
+        const int NO_PLAY = 0, LADDER = 1, SNAKE = 2;
+        int playerpos = 0;
         Random random = new Random();
-        public void DiceRoll()
+        public int DiceRoll()
         {
-            Console.WriteLine("Player got {0}", random.Next(7));
+            return random.Next(7);
+        }
+        public void Player()
+        {
+            int option = random.Next(3);
+            switch (option)
+            {
+                case NO_PLAY:
+                    break;
+                case LADDER:
+                    playerpos += DiceRoll();
+                    break;
+                case SNAKE:
+                    playerpos -= DiceRoll();
+                    break;
+            }
+            Console.WriteLine(playerpos);
+
         }
 
     }
