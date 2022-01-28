@@ -8,7 +8,7 @@ namespace SnakeAndLadder
 {
     public class SnakeLadder
     {
-        const int NO_PLAY = 0, LADDER = 1, SNAKE = 2;
+        const int NO_PLAY = 0, LADDER = 1, SNAKE = 2, WINNING_POS = 100;
         int playerpos = 0;
         Random random = new Random();
         public int DiceRoll()
@@ -17,20 +17,40 @@ namespace SnakeAndLadder
         }
         public void Player()
         {
-            int option = random.Next(3);
-            switch (option)
+            int count = 1;
+            while ( playerpos < WINNING_POS)
             {
-                case NO_PLAY:
-                    break;
-                case LADDER:
-                    playerpos += DiceRoll();
-                    break;
-                case SNAKE:
-                    playerpos -= DiceRoll();
-                    break;
-            }
-            Console.WriteLine(playerpos);
+                int option = random.Next(3);
+                int dice = DiceRoll();
+                switch (option)
+                {
+                    case NO_PLAY:
+                        break;
+                    case LADDER:
+                        
+                        if (playerpos + dice <= WINNING_POS)
+                        {
+                            playerpos += dice;
 
+                        }
+                        break;
+                    case SNAKE:
+                        if (playerpos - dice >=0)
+                        {
+                            playerpos -= dice;
+                        }
+                        else
+                        {
+                            playerpos = 0;
+                        }
+                        
+                        break;
+                }
+                count++;
+                
+            }
+            Console.WriteLine("Player is at position {0}",playerpos);
+            Console.WriteLine("Players complets game in {0} moves",count);
         }
 
     }
